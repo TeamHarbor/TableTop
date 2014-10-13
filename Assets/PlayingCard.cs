@@ -17,6 +17,7 @@ public class PlayingCard : MonoBehaviour {
 		//CardFace.transform.Rotate (new Vector3 (1, 0, 0), -90);
 		CardFace.renderer.material.mainTexture = FaceTexture;
 		CardFace.transform.parent = transform;
+		Destroy (CardFace.collider);
 
 		CardBack = GameObject.CreatePrimitive (PrimitiveType.Quad);
 		CardBack.transform.localPosition = transform.localPosition;
@@ -24,6 +25,7 @@ public class PlayingCard : MonoBehaviour {
 		CardBack.transform.localScale = new Vector3(3.5f,2.5f,1f);
 		CardBack.transform.Rotate (new Vector3 (1, 0, 0), 180);
 		CardBack.transform.parent = transform;
+		Destroy (CardBack.collider);
 
 	}
 	
