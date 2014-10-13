@@ -20,6 +20,7 @@ public class PlayingCard : MonoBehaviour {
 
 		CardBack = GameObject.CreatePrimitive (PrimitiveType.Quad);
 		CardBack.transform.localPosition = transform.localPosition;
+		CardBack.transform.localRotation = transform.localRotation;
 		CardBack.transform.localScale = new Vector3(3.5f,2.5f,1f);
 		CardBack.transform.Rotate (new Vector3 (1, 0, 0), 180);
 		CardBack.transform.parent = transform;
