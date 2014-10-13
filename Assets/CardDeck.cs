@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayingCardDeck : MonoBehaviour {
+public class CardDeck : MonoBehaviour {
 
 	public GameObject CardPrefab;
 	public ArrayList CardImages;
