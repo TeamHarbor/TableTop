@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Cursor : MonoBehaviour {
 
+	public float rotateSpeed = 1;
 	RaycastHit hit;
 	Ray ray;
 
@@ -17,5 +18,11 @@ public class Cursor : MonoBehaviour {
 		if (Physics.Raycast (ray,out hit)) {
 			transform.position = hit.point;
 		}
+
+	}
+
+	void FixedUpdate()
+	{
+		transform.Rotate (new Vector3 (0, rotateSpeed, 0),Space.World);
 	}
 }

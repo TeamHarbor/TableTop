@@ -12,6 +12,7 @@ public class DebugDeck : MonoBehaviour {
 	void Start () {
 		//Initialize all cards into the deck
 		GameObject _card;
+		Card _cardScript;
 		Vector3 _cardPos;
 
 		for(int c = 0; c < 52; c++)
@@ -20,6 +21,9 @@ public class DebugDeck : MonoBehaviour {
 			_card.transform.position += new Vector3(0,.04f*c,0);
 			_card.transform.parent = transform;
 			_card.name = "Card_" + c;
+			_cardScript = _card.GetComponent<Card>();
+			_cardScript.FaceTexture = DebugImage;
+			_cardScript.UpdateTexture = true;
 		}
 	}
 	

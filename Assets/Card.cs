@@ -4,9 +4,14 @@ using System.Collections;
 public class Card : MonoBehaviour {
 
 	public Texture FaceTexture;
+	public Texture BackTexture;
+	public bool UpdateTexture = true;
 
 	private GameObject CardFace;
 	private GameObject CardBack;
+
+	private Shader SolidShader = Shader.Find ("Diffuse");
+	private Shader TransparentShader = Shader.Find ("Transparent/Diffuse");
 
 	private bool drag = false;
 	private Vector3 dragPosition;
@@ -17,6 +22,7 @@ public class Card : MonoBehaviour {
 		CardFace.transform.localPosition = transform.localPosition;
 		CardFace.transform.localRotation = transform.localRotation;
 		CardFace.transform.localScale = new Vector3(3.5f,2.5f,1f);
+		CardFace.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 		CardFace.renderer.material.mainTexture = FaceTexture;
 		CardFace.transform.parent = transform;
 		CardFace.name = "Face";
@@ -27,9 +33,16 @@ public class Card : MonoBehaviour {
 		CardBack.transform.localRotation = transform.localRotation;
 		CardBack.transform.localScale = new Vector3(3.5f,2.5f,1f);
 		CardBack.transform.Rotate (new Vector3 (1, 0, 0), 180);
+		CardBack.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 		CardBack.transform.parent = transform;
 		CardBack.name = "Back";
 		Destroy (CardBack.collider);
+
+		
+		CardBack.renderer.material.color = new Color(1,1,1,0.5f);
+		CardFace.renderer.material.color = new Color(1,1,1,0.5f);
+		CardBack.renderer.material.shader = SolidShader;
+		CardFace.renderer.material.shader = SolidShader;
 
 	}
 	
@@ -40,17 +53,29 @@ public class Card : MonoBehaviour {
 			dragPosition += new Vector3(0,5,0);
 			transform.position = dragPosition;
 		}
+
+		if (UpdateTexture) 
+		{
+			CardBack.renderer.material.mainTexture = BackTexture;
+			CardFace.renderer.material.mainTexture = FaceTexture;
+			UpdateTexture = false;
+		}
 	}
 
 	void OnMouseDown()
 	{
 		drag = true;
 		rigidbody.useGravity = false;
+		CardBack.renderer.material.shader = TransparentShader;
+		CardFace.renderer.material.shader = TransparentShader;
 	}
 
 	void OnMouseUp()
 	{
 		drag = false;
 		rigidbody.useGravity = true;
+		CardBack.renderer.material.shader = SolidShader;
+		CardFace.renderer.material.shader = SolidShader;
+		rigidbody.velocity = Vector3.zero;
 	}
 }
