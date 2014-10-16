@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Card.cs" />
      <Compile Include="Assets\CardDeck.cs" />
+     <Compile Include="Assets\Coin.cs" />
      <Compile Include="Assets\Cursor.cs" />
      <Compile Include="Assets\DebugDeck.cs" />
   </ItemGroup>

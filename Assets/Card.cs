@@ -22,7 +22,6 @@ public class Card : MonoBehaviour {
 		CardFace.transform.localPosition = transform.localPosition;
 		CardFace.transform.localRotation = transform.localRotation;
 		CardFace.transform.localScale = new Vector3(3.5f,2.5f,1f);
-		CardFace.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 		CardFace.renderer.material.mainTexture = FaceTexture;
 		CardFace.transform.parent = transform;
 		CardFace.name = "Face";
@@ -33,7 +32,6 @@ public class Card : MonoBehaviour {
 		CardBack.transform.localRotation = transform.localRotation;
 		CardBack.transform.localScale = new Vector3(3.5f,2.5f,1f);
 		CardBack.transform.Rotate (new Vector3 (1, 0, 0), 180);
-		CardBack.renderer.material.shader = Shader.Find ("Transparent/Diffuse");
 		CardBack.transform.parent = transform;
 		CardBack.name = "Back";
 		Destroy (CardBack.collider);
@@ -52,6 +50,11 @@ public class Card : MonoBehaviour {
 			dragPosition = GameObject.Find ("Cursor").transform.position;
 			dragPosition += new Vector3(0,5,0);
 			transform.position = dragPosition;
+			
+			if (Input.GetMouseButton (1)) 
+			{
+				transform.Rotate (new Vector3(0,180,0));
+			}
 		}
 
 		if (UpdateTexture) 

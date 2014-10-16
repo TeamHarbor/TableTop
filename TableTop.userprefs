@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DebugDeck.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Card.cs">
     <Files>
-      <File FileName="Assets\Card.cs" Line="62" Column="4" />
-      <File FileName="Assets\DebugDeck.cs" Line="18" Column="26" />
-      <File FileName="Assets\CardDeck.cs" Line="4" Column="14" />
-      <File FileName="Assets\Cursor.cs" Line="26" Column="37" />
+      <File FileName="Assets\DebugDeck.cs" Line="25" Column="41" />
+      <File FileName="Assets\Card.cs" Line="57" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
