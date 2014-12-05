@@ -5,7 +5,7 @@ public class DebugDeck : MonoBehaviour {
 
 	public GameObject CardPrefab;
 	public ArrayList CardImages;
-	public Texture DebugImage;
+	public Sprite DebugSprite;
 	public ArrayList Cards;
 
 	// Use this for initialization
@@ -22,7 +22,7 @@ public class DebugDeck : MonoBehaviour {
 			_card.transform.parent = transform;
 			_card.name = "Card_" + c;
 			_cardScript = _card.GetComponent<Card>();
-			_cardScript.FaceTexture = DebugImage;
+			_cardScript.FaceTexture = DebugSprite;
 			_cardScript.UpdateTexture = true;
 		}
 	}
